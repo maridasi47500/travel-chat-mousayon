@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heywowthere111</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav>
+      <%=link_to "ocnnexion", "/users/sign_in"%>
+      <%=link_to "inscription", "/users/sign_up"%>
+      <%=link_to "jouter un endroit", new_place_path%>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
