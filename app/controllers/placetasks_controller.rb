@@ -1,5 +1,6 @@
 class PlacetasksController < ApplicationController
   before_action :set_placetask, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /placetasks or /placetasks.json
   def index

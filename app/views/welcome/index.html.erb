@@ -15,19 +15,55 @@
 <h3>Places</h3>
 <div data-chat-table="places" id="places">
   <table>
+    <%Place.all.each do |x|%>
+      <tr>
+        <td>&#128205;</td>
+        <td><%=x.user.username%> (<%=x.user.country.unicode.html_safe%>)</td>
+        <td><%=x.name%> <img src="/uploads/<%=x.photo%>" class="smallpic"/></td>
+      </tr>
+    <%end%>
   </table>
 
 </div>
 <h3>Tasks</h3>
 <div data-chat-table="placetasks" id="tasks">
   <table>
+    <%Placetask.all.each do |x|%>
+      <tr>
+        <td>&#128205;</td>
+        <td><%=x.user.username%> (<%=x.user.country.unicode.html_safe%>)</td>
+        <td><%=x.place.name%> <img src="/uploads/<%=x.place.photo%>" class="smallpic"/></td>
+        <td><%=x.name%> </td>
+      </tr>
+    <%end%>
   </table>
 
 </div>
 <h3>Tasks ménagère</h3>
 <div data-chat-table="awesometasks" id="awesometasks">
   <table>
+    <%Yourtask.all.each do |x|%>
+      <tr>
+        <td>&#129529;</td>
+        <td><%=x.user.username%> (<%=x.user.country.unicode.html_safe%>)</td>
+        <td><%=x.mytask.name%> </td>
+      </tr>
+    <%end%>
   </table>
 
 </div>
+<h3>boissons</h3>
+<div data-chat-table="boissons" id="boissons">
+  <table>
+    <%Boisson.all.each do |x|%>
+      <tr>
+        <td>&#9749;</td>
+        <td><%=x.user.username%> (<%=x.user.country.unicode.html_safe%>)</td>
+        <td><%=x.drink.name%> </td>
+      </tr>
+    <%end%>
+  </table>
+
+</div>
+
 

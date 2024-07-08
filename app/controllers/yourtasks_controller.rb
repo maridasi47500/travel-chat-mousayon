@@ -1,5 +1,6 @@
 class YourtasksController < ApplicationController
   before_action :set_yourtask, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /yourtasks or /yourtasks.json
   def index
@@ -25,6 +26,7 @@ class YourtasksController < ApplicationController
 
     respond_to do |format|
       if @yourtask.save
+        NewAwesomeTaskJob.perform_later(@yourtask)
         format.html { redirect_to yourtask_url(@yourtask), notice: "Yourtask was successfully created." }
         format.json { render :show, status: :created, location: @yourtask }
       else

@@ -1,0 +1,27 @@
+<%= form_with(model: boisson) do |form| %>
+  <% if boisson.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(boisson.errors.count, "error") %> prohibited this boisson from being saved:</h2>
+
+      <ul>
+        <% boisson.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :drink_id, style: "display: block" %>
+    <%= form.select :drink_id, Drink.all.collect{|h|[h.name,h.id]} %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.select :user_id, [[current_user.try(:username)+" (moi)",current_user.try(:id)]]+User.all.where.not(id: current_user.try(:id)).collect{|h|[h.username,h.id]} %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :boissons
+  resources :drinks
   resources :yourtasks
   resources :mytasks
   resources :placetasks

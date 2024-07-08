@@ -2,3 +2,4 @@
 import "channels/place_channel"
 import "channels/placetask_channel"
 import "channels/awesome_task_channel"
+import "channels/boisson_channel"
