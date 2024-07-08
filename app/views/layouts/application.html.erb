@@ -13,9 +13,20 @@
 
   <body>
     <nav>
+
+      <%if user_signed_in?%>
+        <%= button_to("Log Out", destroy_user_session_path, method: :delete) %>
+      <%else%>
+
       <%=link_to "ocnnexion", "/users/sign_in"%>
       <%=link_to "inscription", "/users/sign_up"%>
+
+      <%end%>
+      <%=link_to "bienveue", "/"%>
       <%=link_to "jouter un endroit", new_place_path%>
+      <%=link_to("jouter des tache menagere ke tu connai &#129529;".html_safe, new_mytask_path).html_safe%>
+      <%=link_to("jouter des tache menagere ke kelkun doit faire", new_yourtask_path)%>
+      <%=link_to "jouter une tâche à un endroit", new_placetask_path%>
     </nav>
     <%= yield %>
   </body>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Yourtasks</h1>
+
+<div id="yourtasks">
+  <% @yourtasks.each do |yourtask| %>
+    <%= render yourtask %>
+    <p>
+      <%= link_to "Show this yourtask", yourtask %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New yourtask", new_yourtask_path %>

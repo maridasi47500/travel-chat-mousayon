@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :yourtasks
+  resources :mytasks
+  resources :placetasks
   resources :countries
   resources :places
   root 'welcome#index'

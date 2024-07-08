@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @placetask %>
+
+<div>
+  <%= link_to "Edit this placetask", edit_placetask_path(@placetask) %> |
+  <%= link_to "Back to placetasks", placetasks_path %>
+
+  <%= button_to "Destroy this placetask", @placetask, method: :delete %>
+</div>
